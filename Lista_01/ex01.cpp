@@ -8,3 +8,6 @@ int main() {
     cout << "Olá, " <<nome << endl;
     return 0;
 }
+
+//para compilar: g++ ex01.cpp -0 ex01
+//para executar: ./ex01
