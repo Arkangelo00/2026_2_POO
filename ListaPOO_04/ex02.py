@@ -16,6 +16,16 @@ class Cliente:
     def set_socio(self, c):
         a = self  # primeiro cliente
         b = c     # segundo cliente
+
+        # sa é o sócio atual de a
+        sa = a.__socio
+        # a tem algum sócio? Se sim, o sócio (sa) dele não é mais a
+        if sa != None: sa.__socio = None
+
+        # sb é o sócio atual de b
+        sb = b.__socio
+        if sb != None: sb.__socio = None
+
         a.__socio = b
         b.__socio = a
 
@@ -44,11 +54,33 @@ c3.set_socio(c4)
 print(c3, "sócio:", c3.get_socio().get_nome())
 print(c4, "sócio:", c4.get_socio().get_nome())
 
+# antes
+# c1 é sócio de c2
+# c2 é sócio de c1
+# c3 é sócio de c4
+# c4 é sócio de c3
+
+# depois
+# c1 é sócio de c3
+# c2 tem que ficar sem sócio
+# c3 é sócio de c1
+# c4 tem que ficar sem sócio
+
+# quando for ligar c1 a c3
+# c1 tem algum sócio? 
+# sócio de c1: s1 = c1.__socio
+# if s1 != None: s1.__socio = None  
+
+# quando for ligar c3 a c1
+# c3 tem algum sócio? 
+# s3 = c3.__socio
+# if s3 != None: s3.__socio = None  
+
 c1.set_socio(c3)
-print(c1, "sócio:", c1.get_socio().get_nome())
-print(c2, "sócio:", c2.get_socio().get_nome())
-print(c3, "sócio:", c3.get_socio().get_nome())
-print(c4, "sócio:", c4.get_socio().get_nome())
+print(c1, "sócio:", c1.get_socio())
+print(c2, "sócio:", c2.get_socio())
+print(c3, "sócio:", c3.get_socio())
+print(c4, "sócio:", c4.get_socio())
 
 
 
